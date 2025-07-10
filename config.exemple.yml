@@ -1,0 +1,59 @@
+# config.example.yml
+
+# Porta ADB
+port: "5555"
+
+Window:
+  title: "scrcpy"
+  borderless: false             # Remove window decorations
+  always_on_top: false          # Keep window always on top
+  fullscreen: false             # Start in fullscreen mode
+  disable_screensaver: false    # Disable screensaver while running
+  width: 516
+  height: 1147
+
+Device:
+  stay_awake: true              # Prevent device sleeping when plugged
+  turn_screen_off: false        # Turn the device screen off immediately
+  show_touches: false           # Show touches on the device
+  power_off_on_close: false     # Power off device on scrcpy close
+  power_on_on_start: false      # Power on device when scrcpy starts
+
+Video:
+  max_size: "1920"              # e.g. "1920", "2160", "4096" Resize to max_sizeValue instead of display resolution
+  bitrate: "BR_16M"             # One of: BR_16M, BR_8M, BR_4M, …, BR_1K
+  fps: false                    # e.g. "120", "90", "60", …
+  print_fps: false
+  codec: "H264"                 # One of: H264, H265, AV1
+  encoder: false                # e.g. "omx.rpi.video_encoder"
+  lock_orientation: false       # One of: DEFAULT, DEG_90, DEG_180, DEG_270
+  orientation: false            # One of: NORMAL, FLIP_0, FLIP_90, FLIP_180, FLIP_270
+  crop: false                   # Format W:H:X:Y  e.g: "1224:1440:0:0"
+  display_id: false             # Display index e.g: "0"
+  display_buffer: false         # Adds buffering for video playback e.g: "50ms"
+  v4l2_buffer: false            # Adds buffering for v4l2 sink e.g: "300ms"
+  no_playback: false            # Used to capture an Android device without playing video or audio on the computer
+  no_video: false               # Disable video forwarding completely, so that only audio is forwarded
+
+Audio:
+  no_audio: true                # Disable Audio forwarding
+  source: false                 # One of: output (default), playback, mic, mic-unprocessed, mic-camcorder, mic-voice-recognition, mic-voice-communication, voice-call, voice-call-uplink, voice-call-downlink, voice-performance,
+  codec: false                  # One of: OPUS, AAC, FLAC, RAW
+  encoder: false                # e.g: "c2.android.opus.encoder"
+  bitrate: false                # Default audio bit rate is 128Kbps. To change it e.g: "512k"
+  buffer: false                 # Default buffer size is set to 50ms. It can be adjusted e.g: "300ms"
+  no_playback: false            #
+
+Camera:
+  as_video_output: false        # To capture the camera instead of the device screen
+  video_output: false           # "camera"
+  size: false                   # One of: FULL_HD, HD, MEDIUM, SD, LOW_1, LOW_2, LOWEST
+  fps: false                    # By default, camera is captured at Android's default frame rate (30 fps). To change: "60"
+  v4l2_sink: false              # To use as webcam on linux, e.g: "/dev/video0"
+
+Mouse:
+  no_mouse_hover: true          # Disable mouse events forwarding
+
+App:                            # User --list-apps to see the dot name of a given app
+  apps_to_open:
+    - app.name.here:AppAliasName
